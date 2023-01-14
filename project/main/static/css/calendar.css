@@ -1,0 +1,157 @@
+*{
+    margin:0;
+    padding: 0;
+    letter-spacing: -1px;
+    box-sizing: border-box;
+}
+
+a{
+    color:initial;
+    text-decoration: none;
+}
+
+/* Flexbox */
+.flex {display: flex;}
+.col-flex {display: flex;flex-direction: column;}
+.jcc {justify-content: center;}
+.jcs {justify-content: space-between;}
+.aic {align-items: center;}
+.aif {align-items: flex-start;}
+/* Basic */
+
+body{
+    background: #dfdfdf;
+    overflow: hidden;
+    width:100vw;
+    height:100vh;
+}
+.wrap{
+    width: 100%;
+    height: 100%;
+}
+button{
+    padding: 10px 15px;
+    background: #444;
+    color:white;
+    border-radius:10px;
+    border:none;
+    outline: none;
+    cursor:pointer;
+    font-size: 18px;
+}
+/* Calendar main */
+
+.calendar{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    filter:drop-shadow(0 0 0 15px rgba(0,0,0,.04));
+    gap: 10px;
+    padding: 40px;
+}
+
+.calendar > div{
+    border-bottom: 1px solid #555;
+    border-radius: 10px;
+}
+
+.calendar-top{
+    padding:10px 20px;
+    font-weight: 900;
+    background: #444;
+    color:white;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.calendar-top:first-of-type{
+    background: rgba(255,99,71,0.8);
+    color: white;
+}
+.calendar-top:nth-child(7){
+    background: rgba(65,105,225,0.8);
+    color: white;
+}
+
+.hidden-date{
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.date{
+    background:#fafafa;
+    padding : 10px;
+    padding-bottom: 40px;
+    cursor:pointer;
+}
+
+/* 현재 날짜에 표시하기 */
+.today{
+    border: 3px solid yellowgreen !important; 
+
+    }
+/* modal */
+.modal {
+    position:fixed;
+    z-index: 100;
+    display:none;
+}
+.modal-bg {
+    width: 100vw;
+    height: 100vh;
+    position:fixed;
+    z-index: 105;
+    background: rgba(0,0,0,.4);
+    backdrop-filter: blur(5px);
+    top:0;
+    left:0;
+}
+.modal-form{
+    background: white;
+    padding:30px;
+    border-radius: 30px;
+    position: fixed;
+    z-index: 107;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    min-width: 500px;
+    
+}
+.modal.show{
+    display: block;
+    top:0;
+    left:0;
+}
+.modal-content{
+    margin-top:40px;
+}
+
+.modal-top{
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.form-inf button{
+    width:100%;
+}
+
+.schedule-list{
+    padding:5px;
+    border-radius: 20px;
+    background: #f4f4f4;
+    margin-bottom: 20px;
+    text-align: center;
+    min-height: 100px;
+    gap:5px;
+}
+.schedule{
+    background: white;
+    padding:10px 15px;
+    border-radius:20px;
+}
+
+.has-schedule{
+    background: #f9a;
+}

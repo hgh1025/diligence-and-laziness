@@ -1,0 +1,160 @@
+
+<html>
+    {% load static %}
+    <head>
+        <title>로그인 / 회원가입 폼 템플릿</title>
+        <link rel="stylesheet" href="{%static 'css/signin.css'%}">
+    </head>
+    <body>
+     <!-- navbar Start-->
+     <nav class="navbar">
+        <div class="navbar__logo">
+          <i class="fa-solid fa-leaf"></i>
+          <a href="">근태관리</a>
+        </div>
+    
+        <ul class="navbar__menu">
+          <li><a href="{%url 'main_index' %}">홈</a></li>
+    
+          <li><a href="{%url 'main_index' %}">회원가입/로그인</a></li>
+         
+          <li><a href="">로그아웃</a></li>
+          
+          
+          <li><a href="{%url 'main_calendar' %}">마이페이지</a></li>
+        
+          
+        </ul>
+    
+        <ul class="navbar__icons">
+          <li><i class="fa-brands fa-twitter"></i></li>
+          <li><i class="fa-brands fa-facebook"></i></li>
+          <li><i class="fa-brands fa-instagram"></i></li>
+        </ul>
+    
+        <a href="#" class="navbar__toggleBtn">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+    </nav>
+          <!-- navbar End -->
+          
+        <div class="wrap">
+            <div class="form-wrap">
+                <div class="button-wrap">
+                    <div id="btn"></div>
+                    <button type="button" class="togglebtn" onclick="login()">LOG IN</button>
+                    <button type="button" class="togglebtn" onclick="register(); ">REGISTER</button>
+                </div>
+                <div class="social-icons">
+                    <img src="{%static 'img/fb.png'%}" alt="facebook">
+                    <img src="{%static 'img/tw.png' %}" alt="twitter">
+                    <img src="{%static 'img/gl.png' %}" alt="google">
+                </div>
+                <!-- 로그인 -->
+                <form id="login" action="{%url 'main_calendar' %}" class="input-group" method="POST">{% csrf_token %}
+                    <input  type="text" class="input-field" placeholder="User name" required>
+                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="checkbox"><span>Remember Password</span>
+                    <button class="submit" onclick="loginFinish();">Login</button>
+                </form>
+                <!-- 회원가입 -->
+                <form id="register" action="{% url 'main_join' %}" class="input-group" method="POST">{% csrf_token %}
+                    <input id="signupName" name="signupName" type="text" class="input-field" placeholder="User name" required>
+                    <input id="signupEmail" name="signupEmail" type="email" class="input-field" placeholder="Your Email" required>
+                    <input id="signupPW" name="signupPW" type="password" class="input-field" placeholder="Enter Password" required>
+                    <!-- <input type="checkbox" class="checkbox"><span>Terms and conditions</span> -->
+           
+                   <!-- 성별 -->
+                    <div class="input-field" >
+                        <label style="position: relative; ">성별</label>
+                        <select class="sel" id="gender" name="gender" aria-label="성별" style="width:150px; left:50px;" required>
+                          <option selected disabled value="성별" >성별</option>
+                          <option>남자</option>
+                          <option>여자</option>
+                        </select>
+                      </div>
+                      
+                    <!-- 생년월일 -->
+                      <div id="age" class="input-field" style="display:flex; margin-right: 10px ;">
+                        <label style="margin-right: 5px;" >생년월일</label>
+                        <div class="bir-yy" style="margin-right: 5px;">
+                         
+                        <input type="text" name="year" id="year" class="int" placeholder="년(4자)" maxlength="4" size="8">
+                        
+                        </div>
+        
+                        <div class="bir-mm" style="margin-right: 5px;">
+                       
+                        <select name= "month" class="sel"  id="month" aria-label="월" required>
+                          <option selected disabled value="월" >월</option>
+                          <option value="01">1</option>
+                          <option value="02">2</option>
+                          <option value="03">3</option>
+                          <option value="04">4</option>
+                          <option value="05">5</option>
+                          <option value="06">6</option>
+                          <option value="07">7</option>
+                          <option value="08">8</option>
+                          <option value="09">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                        </select>  
+                   
+                    </div>
+        
+                    <div class="bir-dd" style="margin-right: 5px;">
+                        
+                        <input  name= "day" id="day" type="text" class="int" maxlength="2" placeholder="일" size="7">
+                   
+                    </div>
+        
+                      </div>
+                      <button id="input-field" class="submit" onclick="registerFinish(); ">REGISTER</button>
+                </form>
+            </div>
+        </div>
+        
+        
+         <!-- navbar start -->
+ <link rel="stylesheet" href="{%static 'css/style.css' %}">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+ <script src="https://kit.fontawesome.com/221ae2e8b7.js" crossorigin="anonymous"></script>
+ <script src="{%static 'js/main.js' %}" defer></script>
+ <!-- navbar end-->
+ 
+        <script>
+            var x = document.getElementById("login");
+            var y = document.getElementById("register");
+            var z = document.getElementById("btn");
+            var a = document.querySelector(".form-wrap");
+        
+            function login(){
+                x.style.left = "50px";
+                y.style.left = "450px";
+                z.style.left = "0";
+            }
+
+            function register(){
+                x.style.left = "-500px";
+                y.style.left = "70px";
+                y.style.width = "300px";
+                y.style.height = "1000px";
+                
+                a.style.height = "1000px";
+                z.style.left = "110px";
+            }
+            
+        function registerFinish(){
+            console.log("회원가입에 성공하였습니다.");
+            alert("회원가입에 성공하였습니다.");
+        }
+        function loginFinish(){
+            console.log("로그인에 성공하였습니다.");
+            alert("로그인에 성공하였습니다.");
+        }
+        </script>
+    </body>
+</html
