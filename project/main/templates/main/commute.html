@@ -1,0 +1,125 @@
+<!-- 23/01/18 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body, html{
+    width:100%;
+    height: 100%;
+    box-sizing: border-box;
+    }
+    
+    /* 타이틀 start */
+    .container{
+    display: block;
+    margin-top: 100px;
+    }
+    
+   .titleList{
+    width:90%;
+   display:flex;
+   /* background-color: gray; */
+   margin-left: 90px;
+   margin-bottom:50px;
+   }
+   
+   .title{
+   width:30%;
+    
+    margin-right:35px;
+    color: red;
+    font-size: 26px;
+    border:1px solid gray;
+    border-radius: 6px;
+    
+    text-align: center;
+   }
+   
+   /* 컨텐츠 start */
+   .content{
+   height: 100%;
+   width:100%;
+   border:1px solid gray;
+   display: flex;
+   
+   margin-left: 80px;
+   }
+   .content p{
+   padding-right: 20px;
+   }
+ .depno, .user, .empno, .go, .leave{
+    flex-wrap: wrap;
+    margin-right: 140px;
+    font-size: 23px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="titleList">
+        <div class="title">부서</div>
+        <div class="title">이름</div>
+        <div class="title">직책</div>
+        <div class="title">출근시간</div>
+        <div class="title">퇴근시간</div>
+        <div class="title">근무시간</div>
+        <div class="title">총 근무일</div>
+        <div class="title">총 급여</div>
+        
+    </div>
+    
+    <div class="content">
+    <div class="depno" style="background-color: rgb(105, 172, 193); width:6%">
+    <p>영원부</p>
+    <p>마켓팅부</p>
+    <p>영원부</p>
+    </div>
+    
+   <div class="user" style="background-color: rgb(87, 29, 29); width:6% ;">
+    {% for user in users %}
+    <p>{{user.user_name}}</p>
+    <p> {{user.user_name}}</p>
+    <p> {{user.user_name}}</p>
+    <!-- <p> {{user.user_email}}</p> -->
+    {% endfor %}
+   </div>
+   <div class="empno" style="background-color: rgb(193, 105, 105);width:6% ;">
+    <p>사원</p>
+    <p>팀장</p>
+    <p>대리</p>
+   </div>
+   
+    <div class="go" style="background-color: rgb(193, 105, 174) ;width:6%;">
+        {% for commute in commutes %}
+        <!-- <p>{{ commute.go_time|date:"hour"}}</p> -->
+        <p>{{ commute.go_time|date:'H:i'}}</p>
+        <p>{{ commute.go_time|date:'H:i'}}</p>
+        <p>{{ commute.go_time|date:'H:i'}}</p>
+        {% endfor %}
+    </div>
+    
+    <div class="leave" style="background-color: rgb(162, 193, 105); width:6%;">
+        {% for commute in commutes %}
+    <p>{{ commute.leave_time|date:'H:i'}}</p>
+    <p>{{ commute.leave_time|date:'H:i'}}</p>
+    <p>{{ commute.leave_time|date:'H:i'}}</p>
+        {% endfor %} 
+    </div> 
+    
+    <div class="work" style="background-color: rgb(193, 165, 105) ; width:15%;">
+        {% for commute in commutes %}
+    <p>퇴근시간 - 출근시간</p>
+    <p>퇴근시간 - 출근시간</p>
+    <p>퇴근시간 - 출근시간</p>
+        {% endfor %} 
+    </div> 
+</div>
+</div>
+
+</div>
+</body>
+</html>

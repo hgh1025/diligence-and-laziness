@@ -5,6 +5,11 @@
         <title>로그인 / 회원가입 폼 템플릿</title>
         <link rel="stylesheet" href="{%static 'css/signin.css'%}">
     </head>
+    <style>
+    .wrap{
+      background-image: url("{% static 'img/background.jpg' %}");
+    }
+    </style>
     <body>
      <!-- navbar Start-->
      <nav class="navbar">
@@ -51,9 +56,9 @@
                     <img src="{%static 'img/gl.png' %}" alt="google">
                 </div>
                 <!-- 로그인 -->
-                <form id="login" action="{%url 'main_calendar' %}" class="input-group" method="POST">{% csrf_token %}
-                    <input  type="text" class="input-field" placeholder="User name" required>
-                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                <form id="login" action="{%url 'main_login' %}" class="input-group" method="POST">{% csrf_token %}
+                    <input  type="email" name='loginEmail' class="input-field" placeholder="User email" required>
+                    <input type="password" name='loginPW' class="input-field" placeholder="Enter Password" required>
                     <input type="checkbox" class="checkbox"><span>Remember Password</span>
                     <button class="submit" onclick="loginFinish();">Login</button>
                 </form>
@@ -135,6 +140,7 @@
                 x.style.left = "50px";
                 y.style.left = "450px";
                 z.style.left = "0";
+                a.style.padding = "5px"
             }
 
             function register(){
@@ -142,8 +148,8 @@
                 y.style.left = "70px";
                 y.style.width = "300px";
                 y.style.height = "1000px";
-                
-                a.style.height = "1000px";
+                a.style.padding = "20px";
+                a.style.height = "550px";
                 z.style.left = "110px";
             }
             

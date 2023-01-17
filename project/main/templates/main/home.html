@@ -1,0 +1,24 @@
+<!-- 23/01/18 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="{% url 'main_home' %}" method="post">{% csrf_token %}
+
+<input id="go_time" class="time" name="go_time" type="submit" value="출근">
+
+</form>    
+
+<form action="{% url 'main_home' %}" method="post">{% csrf_token %}
+    <input id="leave_time" class="time" name="leave_time" type="submit" value="퇴근"> 
+    
+    </form>     
+
+</body>
+</html>

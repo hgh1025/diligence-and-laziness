@@ -6,7 +6,7 @@
 .wrap {
     height: 100%;
     width: 100%;
-    background-image: url(img/background.jpg);
+    background-image: url("{% static 'img/background.jpg' %}");
     background-position: center;
     background-size: cover;
     position: absolute;
@@ -15,10 +15,12 @@
     width: 380px;
     height: 480px;
     position: relative;
-    margin: 6% auto;
+    margin-left: 850px;
+    margin-top:200px;
     background: #fff;
     padding: 5px;
     overflow: hidden;
+  
 }
 .button-wrap {
     width: 230px;
